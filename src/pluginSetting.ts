@@ -28,5 +28,22 @@ export class SampleSettingTab extends PluginSettingTab {
             await this.plugin.saveSettings();
           }),
       );
+
+    new Setting(containerEl)
+      .setName('Routine file')
+      .setDesc('Set the path to your file with routine')
+      .addText(
+        (
+          text, //TODO: will be nice to have here aucompleat
+        ) =>
+          text
+            .setPlaceholder('Routine/tasks')
+            .setValue(this.plugin.settings.pathToRoutineTasks)
+            .onChange(async value => {
+              this.plugin.settings.pathToRoutineTasks = value;
+
+              await this.plugin.saveSettings();
+            }),
+      );
   }
 }
