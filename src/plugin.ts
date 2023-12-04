@@ -45,7 +45,7 @@ export class RoutinePlugin extends Plugin {
           ?.split('---')
           .map((content, index) => (index === 1 ? `\n${stringifyYaml(props)}` : content))
           .join('---')
-      : `---\n${stringifyYaml(props)}---${content}`;
+      : `---\n${stringifyYaml(props)}---\n${content}`;
 
     view?.setViewData(updatedText, false);
   }
